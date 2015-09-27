@@ -1,0 +1,49 @@
+<extend name="public:base" />
+<block name="styles"> 
+	<link rel="stylesheet" type="text/css" href="/public/admin/css/editor.css" />
+</block>
+
+<block name="main">
+	
+		<legend>
+			<h3 class="text-success text-center">
+				关于修改
+			</h3>
+		</legend>
+	
+	<form action="/root/pub.post" method="post" id="form">
+		<div class="form-group">
+			<textarea class="form-control pub-content" name="content" id="content" placeholder="文章内容">{$contents}</textarea>
+		</div>
+		<div class="form-group">
+			<input type="submit" value="确认写完了" class="form-control btn btn-primary" />
+		</div>
+	</form>
+	
+	
+</block>
+
+
+<block name="scripts">
+
+	<script type="text/javascript" src="/public/admin/js/editor.js"></script>
+	<script type="text/javascript" src="/public/admin/js/marked.js"></script>
+	<script type="text/javascript">
+		var editor = new Editor({
+			element: document.getElementById("content")
+		});
+		editor.render();
+		$('#form').on('submit', function(e) {
+			e.preventDefault();
+			$.post('/admin/setting/about', {
+				contents: editor.codemirror.getValue()
+			}, function(r) {
+				alert(r.msg);
+			});
+		});
+	</script>	
+	
+	
+	
+
+</block>

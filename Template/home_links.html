@@ -1,0 +1,10 @@
+<extend name="home:base" />
+<block name="main">
+	
+	<div class="links">
+		<volist name="links" id="val">
+			<h3><a href="{$val.url}" target="_blank">{$val.name}</a></h3>
+		</volist>
+	</div>
+	
+</block>

@@ -1,0 +1,38 @@
+<extend name="home:base" />
+<block name="main">
+	
+	<div class="notes-list detail">
+		<h3 class="tit">
+			<a href="/detail/{$post['did']}">{$post['title']}</a> 
+			<span class="views fr"><i class="fa fa-eye"></i> {$post['views']}</span>
+		</h3>
+		<div class="content markdown" id="content">{$post['contents']}</div>
+		<div class="tags-list">
+			<h3>标签：</h3>
+			<div class="tags">
+				
+				<volist name="tags" id="val">
+		    		<span class="label label-warning"></span>
+		    		<a href="/home/tag/{$val}">{$val}</a>
+			    </volist>
+			    
+			</div>
+		</div>
+	</div>
+	
+	<div class="ds-thread" data-thread-key="{$post['did']}" data-title="{$post['title']}" data-url="/detail/{$post['did']}"></div>
+	<literal>	
+		<script type="text/javascript">
+			var duoshuoQuery = {short_name:'{{=it.duoshuo}}'};
+			(function() {
+				var ds = document.createElement('script');
+				ds.type = 'text/javascript';ds.async = true;
+				ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+				ds.charset = 'UTF-8';
+				(document.getElementsByTagName('head')[0] 
+				 || document.getElementsByTagName('body')[0]).appendChild(ds);
+			})();
+		</script>	
+	</literal>
+
+</block>

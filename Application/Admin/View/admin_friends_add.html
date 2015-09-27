@@ -1,0 +1,57 @@
+<extend name="public:base" />
+
+<block name="main">
+
+	<form  method="post" id="form" class="editer">
+
+		<legend>
+			<h3 class="text-success text-center">
+			<if condition="isset($edit)">
+				修改链接
+			<else /> 添加新链接
+			</if>
+			</h3>
+		</legend>
+
+		<div class="form-group">
+			<label for="tit" class="control-label">链接名称：</label>
+			<input type="text" name="title" class="form-control" id="name" placeholder="链接名称" required="required" <if condition="isset($edit)">value="{$link.name}"</if> >
+		</div>
+		<div class="form-group">
+			<label for="tit" class="control-label">链接地址：</label>
+			<input type="text" name="title" class="form-control" id="url" placeholder="http://" required="required" <if condition="isset($edit)">value="{$link.url}"</if>>
+		</div>
+		<div class="form-group">
+			<input type="submit" value="确认写完了，我要添加" class="form-control btn btn-primary">
+		</div>
+	</form>
+
+</block>
+
+
+<block name="scripts">
+	
+	<script type="text/javascript">
+		
+	$('#form').on('submit', submitData);
+		
+	function submitData(e) {
+		e.preventDefault();
+		var $this = $(this);
+		var data = {
+			name : $('#name').val(),
+			url: $('#url').val()
+		};
+		
+		$.post('/admin/friends/add', data, function(r) {
+			console.log(r);
+			alert(r.msg);
+			location.href = '/admin/friends';
+		});
+	}
+	</script>
+	
+	
+
+
+</block>

@@ -1,0 +1,9 @@
+<ul class="notes-list" >
+
+	<li ng-repeat="item in list">
+		<span class="date">{{item.created|date : 'yyyy-MM-dd'}}</span><a href="#detail/{{item.did}}" class="tit">{{item.title}}</a>
+			<!--<span class="time"><i class="fa fa-calendar"></i> {{item.created}}</span>
+			<span class="views "><i class="fa fa-eye"></i> {{item.views}}</span>-->
+	</li>
+
+</ul>

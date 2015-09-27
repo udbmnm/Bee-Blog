@@ -1,0 +1,10 @@
+<div class="notes-detail">
+	<a href="#detail/{{post.did}}" class="tit">{{post.title}}</a> 
+	<div class="content markdown" id="content">{{post.contents}}</div>
+	<div class="tags-list clearfix">
+		<span class="fl">标签：</span>
+		<div class="tags fl" ng-repeat="tag in post.tags" ng-if="post.tags">
+    		<a href="#tag/{{tag}}">{{tag}}</a>
+		</div>
+	</div>
+</div>

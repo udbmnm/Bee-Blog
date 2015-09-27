@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>{:C('SITE_NAME')}</title>
+		<meta name="Description" content="{:C('SITE_DESC')}" />
+		<meta name="Keywords" content="{:C('SITE_KEYWORDS')}" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="/public/home/css/style.css" />
+		<link href="http://cdn.staticfile.org/highlight.js/8.3/styles/railscasts.min.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="http://cdn.staticfile.org/font-awesome/4.2.0/css/font-awesome.min.css" />
+	</head>
+
+	<body>
+		<div id="wrapper">
+
+			<div id="sidebar-wrapper">
+
+				<ul class="sidebar-nav">
+					<li class="sidebar-brand">
+						<h1 class="avatar" title="{:C('SITE_NAME')}">
+
+							<img src="/public/home/img/avatar.jpg" />
+
+						</h1>
+						<a href="/">{:C('SITE_NAME')}</a>
+					</li>
+					<li><a href="/tags">标签</a>
+					</li>
+					<li><a href="/friends">好友</a>
+					</li>
+					</li>
+					<li><a href="/about">关于</a>
+					</li>
+					<li><a href="/rainymood">RainyMood</a>
+					</li>
+				</ul>
+			</div>
+			<div id="page-content-wrapper">
+				<block name="main">主内容区域</block>
+			</div>
+			<div class="rain" id="rain">
+				<img alt "rainymood" id="background" src="http://dn-404life.qbox.me/static/img/bg.jpg" crossorigin="anonymous" />
+			</div>
+		</div>
+
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script src="/public/home/js/marked.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://cdn.staticfile.org/highlight.js/8.2/highlight.min.js"></script>
+		<script src="/public/home/js/rainyday.min.js"></script>
+		<script type="text/javascript">
+			var $mk = $('.markdown');
+			$mk.each(function(){
+				this.innerHTML = marked(this.innerHTML.replace(/&gt;/g, '>').replace(/&lt;/g, '<'));
+			});
+			$('#content code').each(function(i, block) {
+			    hljs.highlightBlock(block);
+			});
+	        var engine = new RainyDay({
+	            image: document.getElementById('background'),
+	            parentElement : document.getElementById('rain')
+	        });
+			engine.rain([[3, 2, 2]], 100);
+			$('#page-content-wrapper').css('min-height',$('#sidebar-wrapper').height());
+		</script>
+		<block name="scripts"></block>
+		{:htmlspecialchars_decode(C('SITE_STAT'))}
+	</body>
+
+</html>

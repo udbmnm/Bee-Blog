@@ -1,0 +1,13 @@
+*.chm
+*.chw
+.idea/
+.project
+vendor/
+Backup/
+Application/Runtime/
+bower_components/
+toggle/
+vendor/
+ThinkPHP/
+*.zip
+config.native.php

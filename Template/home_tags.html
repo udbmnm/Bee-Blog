@@ -1,0 +1,10 @@
+<extend name="home:base" />
+<block name="main">
+	
+	<div class="tags">
+		<volist name="list" id="val">
+			<a href="tag/{$val.name}">{$val.name}</a>
+		</volist>
+	</div>
+	
+</block>

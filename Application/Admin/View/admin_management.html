@@ -1,0 +1,51 @@
+<extend name="public:base" />
+
+<block name="main">
+
+		<div class="panel  panel-primary">
+			<div class="panel-heading clearfix">
+				<span class=" pull-left">文章管理</span>
+
+			</div>
+			
+				<ul class="list-group">
+					<volist name="list" id="vo">
+						<li class="list-group-item">
+							<a href="/detail/{$vo.did}" target="_blank">{$vo.title}</a>
+							<span class="pull-right col-md-2">
+	
+	              	<a href="/admin/publish?did={$vo.did}" class="label label-primary "><i class="glyphicon glyphicon-pencil"></i> 修改</a>
+	
+	              	<a class="label label-danger del" did="{$vo.did}"><i class="glyphicon glyphicon-trash"></i> </a>
+	
+	             		 </span>
+						</li>
+					</volist>
+				</ul>
+			
+		</div>
+		
+		
+	{$page}
+
+</block>
+
+<block name="scripts">
+
+	<script type="text/javascript">
+		$('.del').on('click', function(e) {
+			e.preventDefault();
+			var $this = $(this);
+			$.post('/admin/publish/delete', {
+				did: $this.attr('did')
+			}, function(r) {
+				if (r.status) {
+					alert(r.msg);
+					return location.reload();
+				}
+				alert(r.msg);
+			});
+		});
+	</script>
+
+</block>

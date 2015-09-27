@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="UTF-8">
+		<title> {:C('SITE_NAME')} </title>
+		<meta name="Description" content="{:C('SITE_DESC')}" />
+		<meta name="Keywords" content="{:C('SITE_KEYWORDS')}" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="/public/home/css/app.css" />
+		<link rel="stylesheet" type="text/css" href="http://cdn.staticfile.org/font-awesome/4.2.0/css/font-awesome.min.css" />
+	</head>
+
+	<body ng-app="indexApp">
+		
+		<div class="con">
+			<div  class="tpl-container {{ pageClass }}" ng-view></div>
+		</div>
+		<div class="toolbar">
+			<div class="pagebar">
+				<a href="#" class="page-prev"></a>
+				<a href="#" class="page-next"></a>
+			</div>
+		</div>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script src="/Public/home/js/angularjs/angular.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/Public/home/js/angularjs/angular-route.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/Public/home/js/angularjs/angular-animate.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/Public/home/js/app.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/Public/home/js/controller.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			
+			var obj = {};
+			
+			Object.defineProperty(obj,'name',{
+				value : 'erik',
+				//configurable: true
+			});
+			Object.defineProperty(obj, 'age', {
+//			    value: 26,
+			 //   configurable: true,
+//			    writable: true,
+			//	enumerable :false,
+			    set : function(){
+			    	console.log('setobj',obj);
+			    },
+			    get : function(){
+			    	console.log('getobj',obj);
+			    }
+			});
+		</script>
+	</body>
+
+</html>

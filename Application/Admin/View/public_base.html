@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8" />
+	<title>管理中心</title>
+	<link rel="stylesheet" type="text/css" href="/Public/admin/css/bootstrap-paper.min.css" />
+	<link rel="stylesheet" href="/Public/admin/css/admin.css" />
+	<block name="styles"></block>
+</head>
+<body>
+	<div class="navbar navbar-default navbar-fixed-top ">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="/admin" class="navbar-brand">管理中心</a>
+        </div>
+		
+		<div class="navbar-collapse collapse" id="navbar-main">
+			<ul class="nav navbar-nav">
+				<li>
+					<a href="/admin/publish">发布新文章</a>
+				</li>
+				<li>
+					<a href="/admin/management">文章管理</a>
+				</li>
+				<li>
+					<a href="/admin/friends ">友链管理</a>
+				</li>
+				<li>
+					<a href="/admin/setting/about">关于修改</a>
+				</li>
+				<li>
+					<a href="/admin/setting">系统设置</a>
+				</li>
+				<li>
+					<a href="/admin/backup">备份管理</a>
+				</li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<if condition="empty(session('admin_user'))">
+					<li><a href="/admin/login">登录</a></li>
+				<else /> 
+					<li><a href="/admin/logout">退出</a>
+				</li>
+				</if>
+				<li>
+					<a href="/" target="_blank">访问前台</a>
+				</li>
+			</ul>
+		</div>
+		
+      </div>
+    </div>
+
+    <div class="container">
+		<block name="main">主内容区域</block>
+    </div>
+    
+    <script src="/public/admin/js/jquery.js" type="text/javascript" charset="utf-8"></script>
+    <block name="scripts"></block>
+</body>
+</html>
