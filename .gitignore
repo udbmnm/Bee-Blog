@@ -9,5 +9,6 @@ bower_components/
 toggle/
 vendor/
 ThinkPHP/
+Uploads/
 *.zip
 config.native.php
