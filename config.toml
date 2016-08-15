@@ -1,0 +1,10 @@
+baseurl = "http://404.life"
+contentdir = "content"
+layoutdir = "layouts"
+publishdir = "public"
+staticdir  = "static"
+languageCode = "zh-cn"
+title = "Life的自由之路"
+[params]
+  description = "记录一些有用的东西。"
+  author = "Life"

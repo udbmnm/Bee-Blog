@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>My New Hugo Site</title>
+    <title>Life的自由之路</title>
     <link>http://404.life/</link>
-    <description>Recent content on My New Hugo Site</description>
+    <description>Recent content on Life的自由之路</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>zh-cn</language>
     <atom:link href="http://404.life/index.xml" rel="self" type="application/rss+xml" />
     
   </channel>
