@@ -1,8 +1,8 @@
-baseurl = "http://404.life"
-contentdir = "content"
-layoutdir = "layouts"
+baseurl = "http://404.life/"
+contentdir = "/content"
+layoutdir = "/layouts"
 publishdir = "/"
-staticdir  = "static"
+staticdir  = "/static"
 languageCode = "zh-cn"
 title = "Life的自由之路"
 [params]
